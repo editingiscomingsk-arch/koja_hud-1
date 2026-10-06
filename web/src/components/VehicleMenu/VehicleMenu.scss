@@ -1,0 +1,170 @@
+.vehicle-menu-screen {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 4vw;
+    z-index: 80;
+    font-family: "Poppins", sans-serif;
+
+    .vehicle-menu {
+        width: fit-content;
+        max-width: 60vw;
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.035) 0%, rgba(255, 255, 255, 0) 14%), #0d0d0f;
+        border: 1px solid var(--line);
+        border-radius: .8vw;
+        box-shadow: 0 1.2vw 3vw rgba(0, 0, 0, 0.6);
+        overflow: hidden;
+
+        .vm-head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2vw;
+            padding: .7vw .9vw;
+            border-bottom: 1px solid var(--line);
+
+            .vm-title {
+                display: flex;
+                align-items: center;
+                gap: .5vw;
+                font-size: .85vw;
+                font-weight: 600;
+                color: var(--txt-1);
+
+                i {
+                    color: var(--txt-2);
+                    font-size: .9vw;
+                }
+            }
+
+            .vm-close {
+                display: flex;
+                align-items: center;
+                gap: .4vw;
+                font-size: .68vw;
+                font-weight: 600;
+                color: var(--txt-2);
+                cursor: pointer;
+                transition: color .18s ease;
+
+                .esc {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    min-width: 1.7vw;
+                    height: 1.3vw;
+                    padding: 0 .35vw;
+                    border-radius: .3vw;
+                    background: rgba(255, 255, 255, 0.06);
+                    border: 1px solid var(--line);
+                    font-size: .55vw;
+                    font-weight: 700;
+                    color: var(--txt-1);
+                }
+
+                &:hover {
+                    color: var(--txt-1);
+                }
+            }
+        }
+
+        .vm-body {
+            display: flex;
+            gap: 1vw;
+            padding: .9vw;
+        }
+
+        .vm-section {
+            display: flex;
+            flex-direction: column;
+            gap: .5vw;
+
+            & + .vm-section {
+                padding-left: 1vw;
+                border-left: 1px solid var(--line);
+            }
+
+            .vm-section-title {
+                font-size: .58vw;
+                font-weight: 700;
+                letter-spacing: .06vw;
+                text-transform: uppercase;
+                color: var(--txt-3);
+            }
+
+            .vm-row {
+                display: flex;
+                gap: .5vw;
+
+                &.grid {
+                    display: grid;
+                    grid-template-columns: repeat(3, 1fr);
+                    gap: .5vw;
+                }
+            }
+        }
+
+        .vm-btn {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: .3vw;
+            width: 4vw;
+            height: 4vw;
+            border-radius: .5vw;
+            background: #17171b;
+            border: 1px solid var(--line);
+            color: var(--txt-2);
+            cursor: pointer;
+            transition: all .16s cubic-bezier(.4, 0, .2, 1);
+
+            .vm-icon {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 1.9vw;
+                height: 1.9vw;
+
+                i {
+                    font-size: 1.05vw;
+                }
+            }
+
+            span {
+                font-size: .55vw;
+                font-weight: 600;
+                color: var(--txt-3);
+                text-align: center;
+                line-height: 1.1;
+            }
+
+            &:hover {
+                border-color: var(--line-strong);
+                background: #1e1e23;
+                color: var(--txt-1);
+
+                span {
+                    color: var(--txt-2);
+                }
+            }
+
+            &.active {
+                background: rgba(46, 221, 111, 0.12);
+                border-color: rgba(46, 221, 111, 0.5);
+                color: #4fe08a;
+                box-shadow: 0 0 1vw rgba(46, 221, 111, 0.2), inset 0 0 .6vw rgba(46, 221, 111, 0.12);
+
+                span {
+                    color: #4fe08a;
+                }
+
+                .vm-icon i {
+                    filter: drop-shadow(0 0 .35vw rgba(46, 221, 111, 0.5));
+                }
+            }
+        }
+    }
+}

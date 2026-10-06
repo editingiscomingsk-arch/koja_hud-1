@@ -1,0 +1,72 @@
+.progressbar {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    justify-content: space-between;
+    transform: translate(-50%);
+    left: 50%;
+    width: fit-content;
+    height: 3.1vw;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.035) 0%, rgba(255, 255, 255, 0) 55%), var(--glass);
+    border: 1px solid var(--line);
+    border-radius: var(--r-md);
+    box-shadow: 0 .6vw 1.8vw rgba(0, 0, 0, 0.45);
+    bottom: 5vw;
+    padding-left: .55vw;
+    padding-right: .7vw;
+
+    .icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 2vw;
+        min-width: 2vw;
+        height: 2vw;
+        border-radius: .5vw;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid var(--line);
+
+        i {
+            font-size: .85vw;
+            color: var(--txt-1);
+        }
+    }
+
+    .holder {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-left: .6vw;
+        width: fit-content;
+        min-width: 8vw;
+        max-width: 15vw;
+        height: 2vw;
+
+        .label {
+            font-family: "Poppins", sans-serif;
+            color: var(--txt-1);
+            font-size: .66vw;
+            font-weight: 600;
+            margin-bottom: .3vw;
+        }
+
+        .bar {
+            width: 100%;
+            height: .28vw;
+            border-radius: 1vw;
+            background-color: rgba(255, 255, 255, 0.09);
+            overflow: hidden;
+
+            .bar-status {
+                width: 40%;
+                height: 100%;
+                border-radius: 1vw;
+                background: linear-gradient(90deg, #d8d8de 0%, #ffffff 100%);
+                box-shadow: 0 0 .5vw rgba(255, 255, 255, 0.55);
+                transition-property: color, width, background-color, border-color, text-decoration-color, fill, stroke;
+                transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+                transition-duration: .15s;
+            }
+        }
+    }
+}

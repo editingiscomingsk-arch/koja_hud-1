@@ -1,0 +1,219 @@
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap');
+
+@font-face {
+  font-family: "Inter";
+  src: url("fonts/Inter-VariableFont_slnt_wght.woff2") format("woff2");
+  font-weight: 100 900;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("fonts/Montserrat-VariableFont_wght.woff2") format("woff2");
+  font-weight: 100 900;
+}
+
+@font-face {
+  font-family: 'Proxima';
+  font-weight: 700;
+  font-style: normal;
+  src: url("fonts/ProximaNova-Semibold.woff2") format('woff2');
+}
+
+@font-face {
+  font-family: Proxima Nova;
+  src: url("fonts/ProximaNova-Semibold.woff2");
+  font-weight: 600;
+  font-style: normal
+}
+
+@font-face {
+  font-family: SF Pro;
+  src: url("fonts/SF-Pro.woff2") format("woff2");
+  font-weight: 100 900;
+}
+
+:root {
+
+
+  --panel: #0c0c0e;
+  --panel-soft: rgba(12, 12, 14, 0.96);
+  --card: #131316;
+  --card-2: #1a1a1f;
+  --glass: rgba(10, 10, 12, 0.88);
+
+
+  --line: rgba(255, 255, 255, 0.07);
+  --line-strong: rgba(255, 255, 255, 0.16);
+
+
+  --txt-1: #f5f5f7;
+  --txt-2: #a2a2ab;
+  --txt-3: #62626b;
+
+
+  --acc-red: #fb3b5c;
+  --acc-white: #ffffff;
+  --acc-orange: #ff8a00;
+  --acc-cyan: #00c3ff;
+  --acc-lime: #9de816;
+  --acc-purple: #c14bff;
+  --acc-green: #2edd6f;
+  --acc-yellow: #ffc933;
+
+
+  --grad-purple: linear-gradient(150deg, #c14bff 0%, #7a2bff 100%);
+  --grad-red: linear-gradient(150deg, #ff5c7a 0%, #e5103d 100%);
+  --grad-amber: linear-gradient(150deg, #ffc933 0%, #ff8a00 100%);
+  --grad-green: linear-gradient(150deg, #4dff8a 0%, #12b552 100%);
+  --grad-cyan: linear-gradient(150deg, #4dd8ff 0%, #0090cc 100%);
+
+
+  --r-xs: .3vw;
+  --r-sm: .45vw;
+  --r-md: .65vw;
+  --r-lg: .9vw;
+  --r-xl: 1.2vw;
+
+
+  --background: 240 6% 5%;
+  --foreground: 0 0% 98%;
+  --card-hsl: 240 6% 8%;
+  --card-foreground: 0 0% 98%;
+  --popover: 240 6% 5%;
+  --popover-foreground: 0 0% 98%;
+  --primary: 0 0% 98%;
+  --primary-foreground: 240 5.9% 10%;
+  --secondary: 240 3.7% 15.9%;
+  --secondary-foreground: 0 0% 98%;
+  --muted: 240 3.7% 15.9%;
+  --muted-foreground: 240 5% 64.9%;
+  --accent: 240 3.7% 15.9%;
+  --accent-foreground: 0 0% 98%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 240 3.7% 15.9%;
+  --input: 240 3.7% 15.9%;
+  --ring: 240 4.9% 83.9%;
+  --text-primary: 0 0% 98%;
+  --text-secondary: 240 5% 64.9%;
+
+  --border-radius-1: .25rem;
+  --border-radius-2: .5rem;
+  --border-radius-3: .75rem;
+  --border-radius-4: 1rem;
+}
+
+* {
+  user-select: none;
+  box-sizing: border-box;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  scroll-behavior: smooth;
+  font-family: "Poppins", "Geist", sans-serif;
+}
+
+#root {
+  height: 100vh;
+  width: 100vw;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: scale(.96) translateY(.4vw);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes slideInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(1.5vw);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-1.5vw);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 1s ease-in-out;
+}
+
+.fade-in-faster {
+  animation: fadeIn 0.2s ease-in-out;
+}
+
+.fade-out {
+  animation: fadeOut 1s ease-in-out;
+}
+
+.pop-in {
+  animation: popIn .25s cubic-bezier(.3, 1.4, .5, 1);
+}
+
+::-webkit-scrollbar {
+  height: .2vw;
+  width: .25vw;
+  transition: 200ms;
+  scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 1vw;
+  background: rgba(255, 255, 255, 0.14);
+  transition: 200ms;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.35);
+  transition: 200ms;
+}

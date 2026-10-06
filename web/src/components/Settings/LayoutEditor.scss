@@ -1,0 +1,215 @@
+.layout-editor {
+    position: fixed;
+    inset: 0;
+    z-index: 90;
+
+    .layout-toolbar {
+        position: absolute;
+        top: 6.2vw;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 1.2vw;
+        width: fit-content;
+        padding: .55vw .8vw;
+        background: rgba(12, 12, 14, 0.96);
+        border: 1px solid var(--line);
+        border-radius: .55vw;
+        box-shadow: 0 .8vw 2.4vw rgba(0, 0, 0, 0.5);
+
+        .texts {
+            display: flex;
+            flex-direction: column;
+            gap: .15vw;
+
+            .title {
+                font-family: "Poppins", sans-serif;
+                font-size: .82vw;
+                font-weight: 600;
+                color: var(--txt-1);
+            }
+
+            .hint {
+                font-size: .58vw;
+                color: var(--txt-2);
+            }
+        }
+
+        .buttons {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: .45vw;
+
+            .btn {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 1.9vw;
+                padding: 0 .9vw;
+                border-radius: .4vw;
+                font-family: "Poppins", sans-serif;
+                font-size: .62vw;
+                font-weight: 600;
+                cursor: pointer;
+                white-space: nowrap;
+                transition: all .18s ease;
+
+                &.ghost {
+                    color: var(--txt-2);
+                    border: 1px solid var(--line);
+                    background: rgba(255, 255, 255, 0.03);
+
+                    &:hover {
+                        color: var(--txt-1);
+                        border-color: var(--line-strong);
+                    }
+                }
+
+                &.primary {
+                    color: #0a0a0c;
+                    background: #e9e9ec;
+
+                    &:hover {
+                        background: #ffffff;
+                    }
+                }
+            }
+        }
+    }
+
+    .layout-proxy {
+        position: absolute;
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: center;
+        gap: .3vw;
+        padding: .25vw;
+        background: rgba(12, 12, 14, 0.18);
+        border: .11vw dashed rgba(255, 255, 255, 0.4);
+        border-radius: .5vw;
+        color: var(--txt-1);
+        cursor: grab;
+        transition: border-color .15s ease, background .15s ease;
+
+
+        .proxy-label {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            gap: .25vw;
+            padding: .15vw .45vw;
+            border-radius: .3vw;
+            background: rgba(8, 8, 10, 0.92);
+            border: 1px solid var(--line);
+            box-shadow: 0 .1vw .4vw rgba(0, 0, 0, 0.55);
+            z-index: 5;
+            pointer-events: none;
+
+            i {
+                font-size: .7vw;
+                color: rgba(255, 255, 255, 0.8);
+            }
+
+            span {
+                font-family: "Poppins", sans-serif;
+                font-size: .58vw;
+                font-weight: 600;
+                color: var(--txt-1);
+                white-space: nowrap;
+            }
+        }
+
+        &.label-above .proxy-label {
+            bottom: calc(100% + .3vw);
+        }
+
+        &.label-below .proxy-label {
+            top: calc(100% + .3vw);
+        }
+
+        &:hover {
+            border-color: rgba(255, 255, 255, 0.75);
+            background: rgba(20, 20, 24, 0.28);
+        }
+
+        &:active {
+            cursor: grabbing;
+            border-color: #ffffff;
+        }
+
+
+        &.minimap {
+            display: block;
+            padding: 0;
+            box-sizing: border-box;
+            background:
+                linear-gradient(rgba(71, 197, 255, 0.07), rgba(71, 197, 255, 0.02)),
+                repeating-linear-gradient(45deg, rgba(71, 197, 255, 0.05) 0 .6vw, rgba(71, 197, 255, 0) .6vw 1.2vw);
+            border: .12vw solid rgba(71, 197, 255, 0.75);
+            border-radius: .3vw;
+            box-shadow: 0 .3vw 1vw rgba(0, 0, 0, 0.4);
+            overflow: visible;
+
+
+            &::before {
+                content: "";
+                position: absolute;
+                inset: .28vw;
+                border: .09vw solid rgba(71, 197, 255, 0.28);
+                border-radius: .18vw;
+                pointer-events: none;
+            }
+
+            &:hover {
+                border-color: rgba(71, 197, 255, 0.95);
+            }
+
+
+            .frame-corner {
+                position: absolute;
+                width: .8vw;
+                height: .8vw;
+                border: .12vw solid rgba(71, 197, 255, 0.9);
+                z-index: 2;
+                pointer-events: none;
+
+                &.tl { top: .18vw; left: .18vw; border-right: none; border-bottom: none; border-top-left-radius: .18vw; }
+                &.tr { top: .18vw; right: .18vw; border-left: none; border-bottom: none; border-top-right-radius: .18vw; }
+                &.bl { bottom: .18vw; left: .18vw; border-right: none; border-top: none; border-bottom-left-radius: .18vw; }
+                &.br { bottom: .18vw; right: .18vw; border-left: none; border-top: none; border-bottom-right-radius: .18vw; }
+            }
+
+            .resize-handle.corner {
+                position: absolute;
+                top: -.5vw;
+                right: -.5vw;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 1.25vw;
+                height: 1.25vw;
+                border-radius: .28vw;
+                background: #47c5ff;
+                border: 1px solid rgba(255, 255, 255, 0.85);
+                box-shadow: 0 .15vw .5vw rgba(0, 0, 0, 0.5);
+                cursor: nesw-resize;
+                z-index: 4;
+
+                i {
+                    font-size: .62vw;
+                    color: #06121a;
+                }
+
+                &:hover {
+                    background: #6fd2ff;
+                }
+            }
+        }
+    }
+}

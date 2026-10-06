@@ -1,0 +1,66 @@
+.status-effects {
+    position: absolute;
+    top: 6vw;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 0.5vw;
+    z-index: 17;
+    pointer-events: none;
+
+    .effect {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 2.4vw;
+        height: 2.4vw;
+        border-radius: 0.5vw;
+        background: rgba(12, 12, 15, 0.82);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        animation: fx-in 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+
+        i {
+            font-size: 1vw;
+            color: var(--fx);
+            filter: drop-shadow(0 0 0.2vw color-mix(in srgb, var(--fx) 45%, transparent));
+        }
+
+        .ring {
+            position: absolute;
+            inset: -0.12vw;
+            width: calc(100% + 0.24vw);
+            height: calc(100% + 0.24vw);
+            transform: rotate(-90deg);
+
+            .ring-track {
+                fill: none;
+                stroke: rgba(255, 255, 255, 0.12);
+                stroke-width: 2.4;
+            }
+
+            .ring-value {
+                fill: none;
+                stroke: var(--fx);
+                stroke-width: 2.4;
+                stroke-linecap: round;
+                transition: stroke-dashoffset 0.25s linear;
+            }
+        }
+
+        .secs {
+            position: absolute;
+            bottom: -0.75vw;
+            font-size: 0.62vw;
+            font-weight: 700;
+            color: #e6e6ea;
+            text-shadow: 0 0.06vw 0.2vw rgba(0, 0, 0, 0.7);
+        }
+    }
+}
+
+@keyframes fx-in {
+    from { opacity: 0; transform: translateY(-0.4vw) scale(0.9); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
+}
